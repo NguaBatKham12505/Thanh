@@ -1,15 +1,19 @@
 package Test_object;
 
 import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
 
 import Object.Guru99HomePage;
 import Object.Guru99LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 
 import java.util.concurrent.TimeUnit;
 
+import org.apache.poi.ss.usermodel.Workbook;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -20,7 +24,6 @@ public class Guru99SimplePOMTestcase {
 	WebDriver driver;
 	Guru99LoginPage objLoginPage;
 	Guru99HomePage objHomePage;
-
 	@Test(enabled = true, priority = 0)
 	public void f() throws InterruptedException {
 		driver.get("http://demo.guru99.com/V4/");
@@ -37,7 +40,8 @@ public class Guru99SimplePOMTestcase {
 		// Verify
 		objHomePage = new Guru99HomePage(driver);
 		String DashBoard = objHomePage.getHomePageDashBoardUserName();
-		Assert.assertTrue(DashBoard.equals("manger id : mgr123"));
+		AssertJUnit.assertTrue(DashBoard.equals("manger id : mgr123"));
+		
 
 	}
 
